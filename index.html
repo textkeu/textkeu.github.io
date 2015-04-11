@@ -1,0 +1,87 @@
+<html ng-app="TruongHe">
+	<head>
+		<title ng-bind="webtitle">Trường Hệ</title>
+		<base href="/">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic">
+		<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+		<link rel="stylesheet" href="styles/main.css">
+		<script src="scripts/parse-1.4.0.min.js"></script>
+	</head>
+	<body layout="column">
+		<div ng-controller="mainCtrl" layout="column">
+		  	<section layout="row" layout-fill>
+			  	<!-- sidenav left-->
+			    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-lg')">
+			    	<md-toolbar id="logo">
+			    	</md-toolbar>
+
+			    	<md-content md-scroll-y flex class="md-padding" ng-controller="LeftCtrl">
+			        	<nav ng-include="'templates/nav.html'"></nav>
+					</md-content>
+			    </md-sidenav>
+			    <!-- #sidenav left-->
+
+			    <!-- content center -->
+			    <div layout="column" layout-fill>
+			    	<md-toolbar>
+			    		<div class="md-toolbar-tools">
+			    			<button class="menu-icon" hide-gt-lg aria-label="Toggle Menu" ng-click="toggleSlideNav('left')">
+								<md-icon md-svg-src="images/ic_menu_24px.svg"></md-icon>
+							</button>
+			    			<span id="main-title" flex ng-bind="mainTitle">Trang chủ</span>
+			    			<button class="menu-icon" hide-gt-md aria-label="Toggle Menu" ng-click="toggleSlideNav('right')">
+								<md-icon md-svg-src="images/ic_more_vert_24px.svg"></md-icon>
+							</button>
+			    		</div>
+			    	</md-toolbar>
+
+			        <md-content ui-view="viewMainContent" md-scroll-y flex></md-content>
+			    </div>
+			    <!-- #content center -->
+
+			    <!-- sidenav right-->
+			    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" md-is-locked-open="$mdMedia('gt-md')">
+			    	<md-toolbar class="md-theme-indigo">
+			        	<h1 class="md-toolbar-tools">Thông tin khác</h1>
+			    	</md-toolbar>
+			    	<md-content md-scroll-y flex ng-controller="RightCtrl">
+			        	<div id="sidebar" layout="column">
+							<div id="sidebarGenre" ui-view="viewGenre"></div>
+							<div id="sidebarOther" ui-view="viewOther"></div>
+						</div>
+					</md-content>
+			    </md-sidenav>
+			    <!-- #sidenav left-->
+		  	</section>
+		</div>
+
+
+		<!--build:js scripts/vendor.js -->
+    	<!-- bower:js -->
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    	<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    	<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    	<script src="bower_components/angular-material/angular-material.min.js"></script>
+    	<!--  endbower -->
+    	<!-- endbuild -->
+
+    	<!-- build:js scripts/app.js -->
+    	<script src="scripts/core/app.mdl.js"></script>
+    	<!-- services -->
+    	<script src="scripts/common/services/utils.svc.js"></script>
+    	<script src="scripts/common/services/book.svc.js"></script>
+    	<!-- controller -->
+    	<script src="scripts/core/homepage/homepage.ctrl.js"></script>
+
+    	<script src="scripts/core/search/search.ctrl.js"></script>
+
+    	<script src="scripts/core/books/book-list/book-list.ctrl.js"></script>
+    	<script src="scripts/core/books/book-list/book-genre.ctrl.js"></script>
+    	<script src="scripts/core/books/book-detail/book-detail.ctrl.js"></script>
+    	<!-- endbuild -->
+	</body>
+</html>

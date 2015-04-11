@@ -1,0 +1,58 @@
+<md-content id="book-detail" layout="column" flex class="md-padding">
+	<div layout-fill>
+		<md-card>
+			<md-item-content>
+				<div class="md-tile-left book-cover">
+					<img ng-src="{{book.get('thumbnail')}}" alt="cover">
+				</div>
+				<div class="md-tile-content book-infor">
+					<h2 class="book-author">Tac gia: {{book.get("authorName")}}</h2>
+					<md-button class="md-primary menu-item" ui-sref="book-list({slugGenre: book.get('genre').get('slug')})">Thể loại: {{book.get("genre").get("name")}}</md-button><br />
+					<md-button class="menu-item" ng-disabled="true">Cập nhập: {{book.updatedAt | date:'yyyy-MM-dd HH:mm'}}</md-button>
+					<md-divider></md-divider>
+					<p>{{book.get("snippet")}}</p>
+				</div>
+			</md-item-content>
+		</md-card>
+		<div class="book-description" ng-bind-html="book.get('description')"></div>
+
+		<md-content id="book-detail-comment">
+			<div class="header-title">
+				<span>Gửi nhận xét của bạn</span>
+			</div>
+			<form name="formCommentBook" ng-submit="commentBook(comment)">
+				<md-input-container md-no-float>
+					<input required ng-model="comment.attributes.name" type="text" placeholder="Họ tên">
+			    </md-input-container>
+
+			    <md-input-container md-no-float>
+					<input ng-model="comment.attributes.email" type="email" placeholder="Email">
+			    </md-input-container>
+
+			    <md-input-container md-no-float>
+			        <textarea required ng-model="comment.attributes.content" columns="1" rows="4" placeholder="Nội dung"></textarea>
+			    </md-input-container>
+
+			    <div style="text-align:right;">
+			    	<md-button class=" md-raise md-primary" type="submit" style="max-height: 40px; width:72px;" ng-disabled="!comment.attributes.name || !comment.attributes.content" aria-label="Gửi">Gửi</md-button>
+			    </div>
+			</form>
+		</md-content>
+
+		<md-content id="book-detail-comments" ng-hide="bookComments.length==0">
+			<div class="header-title">
+				<span>Nhận xét</span>
+			</div>
+			<md-list>
+				<md-list-item class="md-2-line" ng-repeat="bookComment in bookComments">
+					<div class="md-list-item-text">
+						<h3>{{bookComment.get('name')}}</h3>
+          				<p>{{bookComment.get('content')}}</p> 
+					</md-item-content>
+					<md-divider></md-divider>
+				</md-list-item>
+			</md-list>
+		</md-content>
+	</div>
+</md-content>
+      </md-list-item>

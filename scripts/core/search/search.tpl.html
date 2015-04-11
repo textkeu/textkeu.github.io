@@ -1,0 +1,39 @@
+<md-content id="search" class="md-padding">
+	<div layout layout="row" layout-align="end center">
+		<form name="formSearch" ng-submit="search(search)" layout="row">
+			<md-select placeholder="Chọn chủ đề tìm kiếm" ng-model="search.topic">
+				<md-option value="article">Bài viết</md-option>
+				<md-option value="book">Thư viện Sách</md-option>
+				<md-option value="photo">Thư viện Ảnh</md-option>
+				<md-option value="video">Video</md-option>
+			</md-select>
+			<md-input-container md-no-float flex>
+				<input class="search-box" ng-model="search.keyword" type="text" placeholder="Từ khoá (ít nhất 3 ký tự)" ng-minlength="3" ng-required="true">
+		    </md-input-container>
+		    <md-button type="submit" class="md-fab md-mini search-box" aria-label="Tìm kiếm" ng-disabled="!search.topic || !search.keyword">
+		        <md-icon md-svg-src="images/ic_search_24px.svg"></md-icon>
+		    </md-button>
+		</form>
+	</div>
+	<div class="header-title">
+		<span>Kết quả</span>
+	</div>
+	<div id="search-result" layout>
+		<table id="table" class="table table-hover table-mc-light-blue">
+			<thead>
+				<tr>
+					<th>STT</th>
+					<th>Tiêu đề</th>
+					<th>Thể loại</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="item" ng-repeat="book in books" ui-sref="book.detail({slugBook: book.get('slug')})">
+					<td>{{$index + 1}}</td>
+					<td>{{book.get('title')}}</td>
+					<td>{{book.get('genre').get('name')}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</md-content>

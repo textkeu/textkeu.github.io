@@ -1,0 +1,172 @@
+/*common*/
+.menu-item {
+	width: 100%;
+	text-align: left;
+	text-transform: none;
+}
+
+/*Left*/
+#logo{
+	width: 100%;
+	height: 304px;
+	background-image: url("../images/logo.jpg");
+    background-color: #ffffff;
+    background-size: cover; /*contain*/
+}
+
+#nav .nav-item {
+	margin-right: 12px;
+}
+
+#nav .menu-item {
+	width: 100%;
+	text-align: left;
+	text-transform: none;
+	line-height: 24px;
+}
+
+/*center*/
+.menu-icon{
+	background: none;
+  	border: none;
+  	padding: 0;
+}
+
+#main-title {
+	margin-left: 24px;
+}
+
+/*right*/
+.header-title{
+	background: #cccccc;
+	width: 100%;
+	height: 36px;
+	text-align: center;
+}
+.header-title span{
+	line-height: 36px;
+}
+
+/*book-list*/
+md-grid-list {
+  	margin: 8px; 
+}
+.green {
+	background: #b9f6ca; 
+	background-image: url("../images/logo.jpg");
+    background-size: cover;
+}
+
+/*book-detail*/
+#book-detail .book-cover {
+	background: #b9f6ca; 
+	width: 160px;
+	height: 240px;
+}
+#book-detail .book-cover img {
+	max-width:100%;
+	max-height:100%;
+}
+#book-detail .book-infor {
+	margin-left: 24px;
+	height: 240px;
+}
+#book-detail .book-infor .book-author {
+	  margin: 0.5em 0;
+}
+
+#book-detail .book-description {
+	margin-top: 16px;
+}
+
+#book-detail .book-description img{
+	max-width: 90%;
+	max-height: 60%;
+}
+
+#book-detail #book-detail-comment {
+	margin-top: 16px;
+}
+#book-detail .header-title{
+	background: #cccccc;
+	width: 100%;
+	height: 36px;
+	text-align: left;
+	font-weight: bold;
+	padding-left: 16px;
+}
+#book-detail #book-detail-comments {
+	margin-top: 16px;
+}
+#book-detail #book-detail-comments {
+	margin-top: 16px;
+}
+#book-detail #book-detail-comments .md-list-item-text{
+	padding: 4px 24px;
+}
+#book-detail #book-detail-comments .md-list-item-text h3{
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+/*book-edit*/
+.ta-toolbar {
+	background-color: #F0F0F0;
+	padding: 10px 10px 5px;
+	margin-left: 0px; /* Override bootstrap */
+	border: 1px solid #EEE;
+}
+
+.ta-toolbar .btn-group {
+	margin-bottom: 5px;
+}
+
+.ta-editor, .white-box {
+	padding: 10px;
+	background-color: #FFF;
+	border: 1px solid #EEE;
+}
+
+textarea.ta-bind {
+	width: 100%;
+}
+
+.fa {
+  font: normal normal normal 14px/1.45 FontAwesome;
+}
+
+/*book-genre-list*/
+#bookGenreList section {
+  text-align: right;
+  margin: 1em;
+  position: relative !important;
+  padding-bottom: 10px; }
+
+/*book-series-list*/
+#bookSeriesList section {
+  text-align: right;
+  margin: 1em;
+  position: relative !important;
+  padding-bottom: 10px; }
+
+/*search*/
+#search form > * {
+    margin-right: 16px;
+}
+
+#search .search-box {
+	margin-top: 1.2em;
+}
+
+#search .header-title{
+	background: #cccccc;
+	width: 100%;
+	height: 36px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#search #search-result .item {
+	cursor: pointer;
+}
+/*temp*/

@@ -1,0 +1,24 @@
+<md-content id="book-list" class="md-padding">
+	<div layout layout="row" layout-align="end center">
+		<md-button ng-disabled="pageCurrent <= 1" ng-click="viewPage(pageCurrent - 1)" aria-label="Trang trước"><md-icon class="nav-item" md-svg-src="images/ic_navigate_before_24px.svg"></md-icon></md-button>
+
+		<md-button ng-disabled="true">{{pageCurrent}}/{{pageTotal}}</md-button>
+
+		<md-button ng-disabled="pageCurrent == pageTotal" ng-click="viewPage(pageCurrent + 1)" aria-label="Trang sau"><md-icon class="nav-item" md-svg-src="images/ic_navigate_next_24px.svg"></md-icon></md-button>
+	</div>
+	<md-grid-list
+	        md-cols-sm="2" md-cols-md="2" md-cols-gt-md="3"
+	        md-row-height-gt-md="1:1.2" md-row-height="1:1.2"
+	        md-gutter="18px" md-gutter-gt-sm="12px" >
+	    <md-grid-tile class="green" ng-repeat="book in books" ui-sref="book.detail({slugBook: book.get('slug')})">
+	    	<md-grid-tile-header>
+		    	<h3>{{book.get('title')}}</h3>
+		  	</md-grid-tile-header>
+	    	<div class="book"></div>
+	      	<md-grid-tile-footer>
+	        	<h3>{{book.get('authorName')}}</h3>
+	      	</md-grid-tile-footer>
+	    </md-grid-tile>
+	    
+	</md-grid-list>
+</md-content>
